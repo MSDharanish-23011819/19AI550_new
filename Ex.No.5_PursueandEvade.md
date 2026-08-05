@@ -1,10 +1,9 @@
 # Ex.No: 5  Implementation of Steering behaviour-Pursue and Evade in Unity
-### DATE:                                                                            
-### REGISTER NUMBER : 
+### DATE: 29-07-2026                                                                  
+### REGISTER NUMBER : 212223240027
 ### AIM: 
 To write a program to simulate the process of Pursue and Evade behavior in Unity using NavigationMeshAgent. 
 ### Algorithm:
-```
 1. Create a New Unity Project by Open the  Unity Hub and create a new 3D Project.
 2. Name the project "SteeringBehaviors" and select a location. Click Create.
 3.Open Unity Scene (default is SampleScene).
@@ -30,6 +29,8 @@ To write a program to simulate the process of Pursue and Evade behavior in Unity
     Evader: Set Speed = 6.
 5. Write a script for  Player_movement behavior and save it
 
+**Player.script**
+```
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -51,16 +52,21 @@ public class Player_movement : MonoBehaviour
         
     }
 }
+```
+
 **Evader script**
+```
+using UnityEngine;
+
 public class Evader : MonoBehaviour
 {
     // Start is called before the first frame update
-    public NavMeshAgent agent;
+    public UnityEngine.AI.NavMeshAgent agent;
     public Transform target;
     public float evadespeed;
     void Start()
     {
-        agent= GetComponent<NavMeshAgent>();
+        agent= GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
     void evade()
@@ -76,16 +82,22 @@ public class Evader : MonoBehaviour
         evade();          
      }
 }
+
+```
+
 **Pursuer script**
+```
+using UnityEngine;
+
 public class Pursuer: MonoBehaviour
 {
     // Start is called before the first frame update
-    public NavMeshAgent agent;
+    public UnityEngine.AI.NavMeshAgent agent;
     public Transform target;
     public float speed;
     void Start()
     {
-        agent=this.GetComponent<NavMeshAgent>();
+        agent=this.GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
        // Update is called once per frame
     void pursue()
@@ -100,19 +112,15 @@ public class Pursuer: MonoBehaviour
         pursue();          
      }
 }
+
+```
 7. Attach the Script to each player,pursuer and Evader.
    Drag & Drop the Target from the Hierarchy into the "Target" field in the script component ( For pursuer and Evader).
 12. Run the game 
 13. Stop the program
-    
-```
+
 ### Output:
-
-
-
-
-
-
+<img width="1917" height="1077" alt="image" src="https://github.com/user-attachments/assets/b819f185-b054-4ad3-b2ad-fb5d503e257e" />
 
 
 
